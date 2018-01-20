@@ -19,7 +19,7 @@
     "react-tap-event-plugin": "^3.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "nodemon server.js",
     "start-dev": "nf start -p 3000",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
