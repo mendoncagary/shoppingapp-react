@@ -6,25 +6,34 @@ import { List, ListItem, Subheader, Divider } from 'material-ui'
 
 class BottomProductSheet extends Component {
 
+    
+
     constructor(props) {
         super(props);
         this.state= {
         };
-       
+        
+
         //binding all our functions to this class
         this.ChooseVariants = this.ChooseVariants.bind(this);
     } 
 
     ChooseVariants(e){
         e.preventDefault();
+        let product =[];
+        product["name"] = this.props.productName;
+        product["price"] = this.props.productPrice;
     this.props.parentContext.setState({totalItems :this.props.parentContext.state.totalItems+1 });
+    //var count = this.props.parentContext.state.totalItems -1;
     this.props.parentContext.setState({totalPrice :this.props.parentContext.state.totalPrice+ this.props.parentContext.state.productPrice});
+    this.props.parentContext.state.cartItems.push(product);
+    this.props.parentContext.setState({cartItems: this.props.parentContext.state.cartItems});
     }
     
 render() {
     let variantsNodes = this.props.productVariants.map(variants => {
         return (
-        <ListItem onClick={this.ChooseVariants} primaryText={variants.variations} id={variants['_id']} secondaryText= "99" />
+        <ListItem onClick={this.ChooseVariants} primaryText={variants.variations} id={variants['_id']} secondaryText= {'$'+this.props.productPrice} />
         )
         })
 

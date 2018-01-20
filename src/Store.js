@@ -17,7 +17,7 @@ import TotalDialog from './components/TotalDialog/TotalDialog';
 class Store extends Component {
  constructor(props) {
  super(props);
- this.state = { data: [], isOpen: false, productName: [], productVariants: [],productPrice: 0,totalItems: 0,totalPrice:0 };
+ this.state = { data: [], isOpen: false, productName: [], productVariants: [],productPrice: 0,cartItems:[],totalItems: 0,totalPrice:0 };
  this.loadProductsFromServer = this.loadProductsFromServer.bind(this);
  this.handleProductSheet = this.handleProductSheet.bind(this);
  this.CloseSheet = this.CloseSheet.bind(this);
@@ -55,7 +55,7 @@ class Store extends Component {
  <ProductList data={ this.state.data } OpenProductSheet ={this.handleProductSheet}/>
  </div>
     <BottomProductSheet parentContext={this} productName={this.state.productName} productPrice={this.state.productPrice} productVariants ={this.state.productVariants} OpenSheet ={this.state.isOpen} CloseSheet ={this.CloseSheet}/>
-    <BottomNavbar appContext = {this.props.appContext}/>
+    <BottomNavbar checkoutItems={this.state.cartItems} parentContext={this} appContext = {this.props.appContext}/>
  </div>
  { (this.state.totalItems)
  ? <TotalDialog parentContext={this}/>:null}

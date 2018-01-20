@@ -20,12 +20,15 @@ class Cart extends Component {
 
  
  render() {
-    let cartNodes = this.props.productVariants.map(variants => {
-        return (
-        <ListItem onClick={this.ChooseVariants} primaryText={variants.variations} id={variants['_id']} secondaryText= "99" />
-        )
-        })
-
+    let cartNodes = this.props.checkoutItems.map(items => {
+         return (
+             <div>
+         <ListItem primaryText={items.name} id={items['_id']} secondaryText= {'$'+items.price} />
+         <Divider />
+         </div>
+         )
+         })
+console.log(this.props.checkoutItems);
  return (
  
 <div>
@@ -35,7 +38,12 @@ class Cart extends Component {
   <div style={ style.commentBox }>
  <h2 style={ style.title }>Cart:</h2>
  </div>
- <TotalDialog/>
+ 
+            <List>
+            <Divider />
+            {cartNodes}
+            </List>
+ 
  </div>
  
  </MuiThemeProvider>

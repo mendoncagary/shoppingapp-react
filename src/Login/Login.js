@@ -17,7 +17,7 @@ constructor(props){
  }
 
  handleClick(event){
-    var apiBaseUrl = "http://localhost:3001/api/";
+    var apiBaseUrl = "https://shoppingapp-api.herokuapp.com/api/";
     var self = this;
     var payload={
     "username":this.state.username,
@@ -29,7 +29,7 @@ constructor(props){
     if(response.status == 200){
     console.log("Login successfull");
     var uploadScreen=[];
-    uploadScreen.push(<Store appContext={self.props.appContext} url='http://localhost:3001/api/products' pollInterval={2000}/>)
+    uploadScreen.push(<Store appContext={self.props.appContext} url='https://shoppingapp-api.herokuapp.com/api/products/' pollInterval={2000}/>)
     self.props.appContext.setState({loginPage:[],uploadScreen:uploadScreen})
     }
     else if(response.status == 204){

@@ -18,7 +18,7 @@ class BottomNavbar extends Component {
     this.setState({selectedIndex: index});
     if(index==0){
       var uploadScreen =[]
-      uploadScreen.push(<Cart storeContext={this.props.parentContext}/>)
+      uploadScreen.push(<Cart checkoutItems={this.props.checkoutItems} parentContext={this.props.parentContext}/>)
       this.props.appContext.setState({loginPage:[],uploadScreen:uploadScreen})
   
 
