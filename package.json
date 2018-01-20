@@ -1,6 +1,9 @@
 {
   "name": "shopping-app",
   "version": "0.1.0",
+  "engines": {
+    "node": "6.9.2"
+  },
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
