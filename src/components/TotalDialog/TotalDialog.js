@@ -7,7 +7,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 const customContentStyle = {
   width: '100%',
   maxWidth: 'none',
-  position: 'fixed',
   bottom: '50px'
 };
 
@@ -26,6 +25,14 @@ export default class TotalDialog extends React.Component {
   handleClose = () => {
     this.setState({openDialog: false});
   };
+
+  
+ handleClick(e){
+  e.preventDefault();
+ this.props.onOpenOrderDetails();
+  }
+
+
 
   render() {
     const actions = [
@@ -49,11 +56,19 @@ export default class TotalDialog extends React.Component {
       title={this.props.parentContext.state.totalItems}
       subtitle="Subtotal"
     />
-    <CardText>{this.props.parentContext.state.totalPrice}
-      
+    <CardText>
+    <h3>${this.props.parentContext.state.totalPrice}{this.props.total}</h3>
+    { (this.props.appear)
+ ?  <RaisedButton label="Charge" primary={true} style={style} onClick={(e) => this.handleClick(e)}/>:null}
+
     </CardText>
+    
   </Card>
       </div>
     );
   }
 }
+
+const style = {
+  margin: 15,
+ };

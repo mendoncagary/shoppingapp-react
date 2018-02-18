@@ -4,6 +4,7 @@ import IconButton from 'material-ui/IconButton';
 import FontIcon from 'material-ui/FontIcon';
 import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
 import ContentAddIcon from 'material-ui/svg-icons/content/add';
+import SearchIcon from 'material-ui/svg-icons/action/search';
 import MenuItem from 'material-ui/MenuItem';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -31,8 +32,7 @@ class TopNavBar extends React.Component {
               </IconButton>
             }
           >
-            <MenuItem primaryText="Download" />
-            <MenuItem primaryText="More Info" />
+            <MenuItem primaryText="Electronics" />
           </IconMenu>
         </ToolbarGroup>
         <ToolbarGroup>
@@ -44,20 +44,18 @@ class TopNavBar extends React.Component {
               </IconButton>
             }
           >
-            <MenuItem primaryText="Download" />
-            <MenuItem primaryText="More Info" />
+            <MenuItem primaryText="Exciting Deals" />
           </IconMenu>
         </ToolbarGroup>
         <ToolbarGroup>
           <IconMenu
             iconButtonElement={
               <IconButton touch={true}>
-                <NavigationExpandMoreIcon />
+                <SearchIcon />
               </IconButton>
             }
           >
-            <MenuItem primaryText="Download" />
-            <MenuItem primaryText="More Info" />
+            <MenuItem primaryText="Search Products" />
           </IconMenu>
         </ToolbarGroup>
       </Toolbar>

@@ -12,12 +12,12 @@ import TextField from 'material-ui/TextField';
 import BottomSheet from 'material-ui-bottom-sheet/lib/components/BottomSheet/BottomSheet';
 import BottomProductSheet from './components/BottomProductSheet/BottomProductSheet';
 import TotalDialog from './components/TotalDialog/TotalDialog';
-
+import OrderDetails from './components/OrderDetails/OrderDetails';
 
 class Store extends Component {
  constructor(props) {
  super(props);
- this.state = { data: [], isOpen: false, productName: [], productVariants: [],productPrice: 0,cartItems:[],totalItems: 0,totalPrice:0 };
+ this.state = {username: this.props.username, data: [], isOpen: false, productName: [], productVariants: [],productPrice: 0,cartItems:[],totalItems: 0,totalPrice:0 };
  this.loadProductsFromServer = this.loadProductsFromServer.bind(this);
  this.handleProductSheet = this.handleProductSheet.bind(this);
  this.CloseSheet = this.CloseSheet.bind(this);
@@ -27,6 +27,8 @@ class Store extends Component {
     this.setState({isOpen:true});
     this.setState({productName : name,productVariants: variants,productPrice: price});
     }
+
+    
 
     CloseSheet(){
         this.setState({isOpen:false});
@@ -55,10 +57,10 @@ class Store extends Component {
  <ProductList data={ this.state.data } OpenProductSheet ={this.handleProductSheet}/>
  </div>
     <BottomProductSheet parentContext={this} productName={this.state.productName} productPrice={this.state.productPrice} productVariants ={this.state.productVariants} OpenSheet ={this.state.isOpen} CloseSheet ={this.CloseSheet}/>
-    <BottomNavbar checkoutItems={this.state.cartItems} parentContext={this} appContext = {this.props.appContext}/>
+    <BottomNavbar total={this.state.totalPrice} selectedIndex={2} checkoutItems={this.state.cartItems} parentContext={this} appContext = {this.props.appContext}/>
  </div>
  { (this.state.totalItems)
- ? <TotalDialog parentContext={this}/>:null}
+ ? <TotalDialog appear={false} parentContext={this} onOpenOrderDetails = {this.handleOrderDetails} />:null}
 
  </MuiThemeProvider>
  

@@ -6,11 +6,13 @@ import style from '../../style';
 class ProductList extends Component {
  render() {
  let productNodes = this.props.data.map(product => {
+     
  return (
  <Product
  name={ product.name }
  uniqueID={ product['_id'] }
  price={product.price}
+ imgPath={product.imgPath}
  variants={ product.variants}
  onProductDelete={ this.props.ProductDelete }
  onProductUpdate={ this.props.ProductUpdate }
@@ -18,7 +20,7 @@ class ProductList extends Component {
  key={ product['_id'] }>
  { product.description }
  { product.price}
- </Product>
+  </Product>
  )
  })
  return (

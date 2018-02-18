@@ -17,7 +17,7 @@ constructor(props){
  }
 
  handleClick(event){
-    var apiBaseUrl = "https://shoppingapp-api.herokuapp.com/api/";
+    var apiBaseUrl = "http://localhost:3001/api/";
     var self = this;
     var payload={
     "username":this.state.username,
@@ -29,7 +29,7 @@ constructor(props){
     if(response.status == 200){
     console.log("Login successfull");
     var uploadScreen=[];
-    uploadScreen.push(<Store appContext={self.props.appContext} url='https://shoppingapp-api.herokuapp.com/api/products/' pollInterval={2000}/>)
+    uploadScreen.push(<Store username={self.state.username}  appContext={self.props.appContext} url='http://localhost:3001/api/products/' pollInterval={2000}/>)
     self.props.appContext.setState({loginPage:[],uploadScreen:uploadScreen})
     }
     else if(response.status == 204){
@@ -55,6 +55,7 @@ render() {
           <AppBar
              title="Login"
            />
+           <div style={style.container}>
            <TextField
              hintText="Enter your Username"
              floatingLabelText="Username"
@@ -68,7 +69,8 @@ render() {
                onChange = {(event,newValue) => this.setState({password:newValue})}
                />
              <br/>
-             <RaisedButton label="Submit" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
+             <RaisedButton label="Submit" primary={true} style={style.button} onClick={(event) => this.handleClick(event)}/>
+         </div>
          </div>
          </MuiThemeProvider>
       </div>
@@ -76,6 +78,11 @@ render() {
   }
 }
 const style = {
- margin: 15,
+  container:{
+ marginLeft: '40%'
+  },
+  button:{
+    margin: 15
+  }
 };
 export default Login;
