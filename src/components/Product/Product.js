@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import style from '../../style';
 import marked from 'marked';
 
-const api = "http://localhost:3001/uploads/"
+const api = "https://shoppingapp-api.herokuapp.com/uploads/"
 class Product extends Component {
  
 constructor(props) {

@@ -50,7 +50,7 @@ export default class OrderDetails extends React.Component {
   
     
  handleClick(event){
-    var apiBaseUrl = "http://localhost:3001/api/";
+    var apiBaseUrl = "https://shoppingapp-api.herokuapp.com/api/";
     var self = this;
     var payload={
       "id":this.props.username,
@@ -65,7 +65,7 @@ export default class OrderDetails extends React.Component {
     if(response.status == 200){
     console.log("Order successfull");
     var uploadScreen=[];
-    uploadScreen.push(<Orders appContext={self.props.appContext} url='http://localhost:3001/api/orders/' pollInterval={2000}/>)
+    uploadScreen.push(<Orders appContext={self.props.appContext} url='https://shoppingapp-api.herokuapp.com/api/orders/' pollInterval={2000}/>)
     //self.props.appContext.setState({loginPage:[],uploadScreen:uploadScreen})
     self.props.onUploadScreen(uploadScreen)
       }

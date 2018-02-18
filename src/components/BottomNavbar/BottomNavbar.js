@@ -33,7 +33,7 @@ class BottomNavbar extends Component {
     }
     else if(index==1){
       var uploadScreen =[]
-      uploadScreen.push(<Orders url='http://localhost:3001/api/orders/' pollInterval={2000} parentContext={this.props.parentContext}/>)
+      uploadScreen.push(<Orders url='https://shoppingapp-api.herokuapp.com/api/orders/' pollInterval={2000} parentContext={this.props.parentContext}/>)
       if(this.props.appContext)
       this.props.appContext.setState({loginPage:[],uploadScreen:uploadScreen})
   
